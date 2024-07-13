@@ -10,7 +10,7 @@ partial class Program
     static void Main(string[] args)
     {
         var host = CreateHostBuilder(args).Build();
-        var pythonService = host.Services.GetRequiredService<IOrderTradeService>();
+        var pythonService = host.Services.GetRequiredService<ISetTradeService>();
 
         // Use the Python service
         var result = pythonService.Add(10, 20);
@@ -28,8 +28,7 @@ partial class Program
             Pin = "000000",
             Position = "AUTO",
             PriceType = "LIMIT",
-            ValidityType = "GOOD_TILL_DAY",
-            investor = investor
+            ValidityType = "GOOD_TILL_DAY"
         };
 
         // Use the Python service to place a Derivatives order
@@ -45,8 +44,7 @@ partial class Program
             Price = 38.0,
             Volume = 100,
             Side = "BUY",
-            Pin = "000000",
-            investor = investor
+            Pin = "000000"
         };
 
         // Use the Python service to place an Equity order
@@ -69,6 +67,6 @@ partial class Program
 
             // Register Investor as a singleton
             services.AddSingleton(sp => sp.GetRequiredService<IOptions<Investor>>().Value);
-            services.AddSingleton<IOrderTradeService, OrderTradeService>();
+            services.AddSingleton<ISetTradeService, SetTradeService>();
         });
 }

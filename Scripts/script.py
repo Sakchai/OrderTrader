@@ -60,5 +60,62 @@ class Order:
         return order
 
 
+class DerivativeOrderDetailAccountInfo:
+    def __init__(self, app_id, app_secret, app_code, broker_id, account_no):
+        print(f"app_id:{app_id}")
+        print(f"app_secret:{app_secret}")
+        print(f"app_code:{app_code}")
+        print(f"broker_id:{broker_id}")
+        self.app_id = app_id
+        self.app_secret = app_secret
+        self.app_code = app_code
+        self.broker_id = broker_id
+        self.account_no = account_no
+        
+        self.investor = Investor(
+            app_id= self.app_id,
+            app_secret=self.app_secret,
+            app_code=self.app_code,
+            broker_id=self.broker_id,
+            is_auto_queue=False
+        )
+
+    def get_account_info():
+        try:
+            deri = self.investor.Derivatives(account_no=self.account_no)
+            account_info = deri.get_account_info()
+            return account_info
+        except Exception as e:
+            return {'error': str(e)}
+
+class DerivativeOrderDetail:
+    def __init__(self, app_id, app_secret, app_code, broker_id, account_no, order_no ):
+        print(f"app_id:{app_id}")
+        print(f"app_secret:{app_secret}")
+        print(f"app_code:{app_code}")
+        print(f"broker_id:{broker_id}")
+        self.app_id = app_id
+        self.app_secret = app_secret
+        self.app_code = app_code
+        self.broker_id = broker_id
+        self.account_no = account_no
+        self.order_no  = order_no 
+        
+        self.investor = Investor(
+            app_id= self.app_id,
+            app_secret=self.app_secret,
+            app_code=self.app_code,
+            broker_id=self.broker_id,
+            is_auto_queue=False
+        )
+
+    def get_order():
+        try:
+            deri = self.investor.Derivatives(account_no=self.account_no)
+            order = deri.get_order(order_no = self.order_no)
+            return order
+        except Exception as e:
+            return {'error': str(e)}
+
 def add(a, b):
     return a + b
