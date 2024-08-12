@@ -31,9 +31,8 @@ This project integrate a Python script within a C# .NET Core 8 application to pl
     string pythonScriptPath = @"c:\folder\script.py";
 
 5. **Give a Star!** :star:
-If you like or are using this project to learn or start your solution, please give it a star. Thanks!
-
-Or if you're feeling really generous, we now support GitHub sponsorships - see the button above.
+   If you like or are using this project to learn or start your solution, please give it a star. Thanks!
+   Or if you're feeling really generous, we now support GitHub sponsorships - see the button above.
 
 # Project Structure    
 
